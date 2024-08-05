@@ -6,7 +6,7 @@ Generative AI has the capability to extract essential information from large vol
 
 ## Team Members
 - Dhyanesh Dikkar
-- Yash Khadayte
+- Yash Khadayate
 - Nisha Bhosale
 - Tanmay Kale
 - Siddhi Firodiya
