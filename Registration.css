@@ -1,0 +1,121 @@
+/*----- Registration Form -----*/
+
+#Registration {
+   padding-top: 8px;
+   padding-bottom: 10px;
+}
+#Registration .section-title {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 30px;
+}
+@media (max-width:482px) {
+    #Registration .section-title {
+        font-size: 35px; 
+        line-height: 35px;
+        margin: 0 auto 40px; 
+    }
+}
+#Registration h1 { margin: 10px 0 10px; font-size: 24px; color: #fff; }
+#Registration hr { color: inherit; height: 0; margin: 6px 0 6px 0; padding: 0; border: 1px solid #d9d9d9; border-style: none none solid; }
+
+/* Form style */
+#Registration input, select, textarea{ 
+    font-family: 'Exo', sans-serif;
+    font-weight: 400;
+	width: 100%; 
+	max-width: ;
+	padding: 12.9px; 
+	color: #1c1c1c; 
+	background: #f2f2f2; 
+	border: 1px solid #f0f0f0; 
+	margin: 3px 0px 24px 0; 
+	-webkit-border-radius: 2px; 
+} 
+textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="color"]:focus,.uneditable-input:focus {   
+    border-color: none;
+    box-shadow: none;
+    outline: 0 none;
+}
+textarea { 
+	width: 100%;
+	height: 120px;
+	padding: 13px; 
+	color: #1c1c1c; 
+	background: #1c1c1c; 
+	border: 1px solid #f0f0f0; 
+	margin-top: 7px;
+	margin-left: ;
+	margin-right:15px;
+	-webkit-border-radius: 2px; 
+}
+::-webkit-input-placeholder { 
+    font-family: 'Exo', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    color:#555;
+}
+#Registration input:focus, textarea:focus, select:focus { 
+	border: 1px solid #f0f0f0; 
+	background-color: #f0f0f0; 
+	color:#1c1c1c; 
+}
+
+#Registration input.submit { 
+    width: auto!important;
+	font-family: 'Exo', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 4px;
+    color: #f0f0f0;
+	background-color:#86c734;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1;
+    letter-spacing: 1px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 16px;
+    padding-bottom: 14px;
+    text-align: center;  
+    text-transform: uppercase;
+    
+    transition: background-color 0.1s linear;
+    -moz-transition: background-color 0.1s linear;
+    -webkit-transition: background-color 0.1s linear;
+    -o-transition: background-color 0.1s linear;
+
+    box-shadow: 0 -3px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 -3px rgba(0, 0, 0, 0.1) inset;
+    -webkit-box-shadow: 0 -3px rgba(0, 0, 0, 0.1) inset;
+    -o-box-shadow: 0 -3px rgba(0, 0, 0, 0.1) inset;
+    
+    transition: opacity 0.3s linear;
+    -moz-transition: opacity 0.3s linear;
+    -webkit-transition: opacity 0.3s linear;
+    -o-transition: opacity 0.3s linear;
+}
+#Registration input.submit:hover { 
+	opacity: .7;
+}
+#Registration input[type="submit"][disabled] { background:#888; }
+
+#Registration span.required { 
+	font-size: 13px; 
+	color: #ff0000; 
+}
+
+.loader { 
+	padding: 0 10px; 
+}
+acronym { 
+border-bottom:1px dotted #ccc; 
+}
+.submit{
+	background-color:#4CAF50;
+}
+
