@@ -1,0 +1,77 @@
+Steps to Connect SQL and MongoDB Databases
+
+1. Set Up PHP Environment
+Ensure that your PHP environment is configured with the necessary extensions to connect to both MySQL (or PostgreSQL) 
+and MongoDB.
+You’ll need:
+mysqli or PDO extension for SQL database connectivity.
+MongoDB PHP Library for MongoDB connectivity.
+
+2. Install MongoDB PHP Library
+Install the MongoDB PHP driver using Composer:
+
+    composer require mongodb/mongodb
+
+This library provides a simple API for MongoDB operations.
+
+3. Database Connection in PHP
+Connect to your SQL database (MySQL/PostgreSQL):
+
+    $mysqli = new mysqli("host", "user", "password", "database");
+    if ($mysqli->connect_error) {
+        die("Connection failed: " . $mysqli->connect_error);
+    }
+
+Connect to your MongoDB database:
+
+    require 'vendor/autoload.php'; // include Composer autoloader
+
+    $client = new MongoDB\Client("mongodb://localhost:27017");
+    $collection = $client->yourDatabase->yourCollection;
+
+4. Designing the Common Identifier
+Use a common field, such as userID, that exists in both SQL and MongoDB.
+When a user uploads a document, generate a userID and store it in the SQL database. 
+Also, store this userID in the MongoDB document along with the uploaded file.
+Example:
+
+    // SQL Insert
+    $sql = "INSERT INTO users (userID, username, email) VALUES ('$userID', '$username', '$email')";
+    $mysqli->query($sql);
+
+    // MongoDB Insert
+    $document = ['userID' => $userID, 'documentData' => $documentData];
+    $collection->insertOne($document);
+
+5. Handling Document Uploads
+When a user uploads a document, save the file details in MongoDB with the corresponding userID.
+Example:
+
+    if ($_FILES['uploadedFile']) {
+        $userID = $_SESSION['userID']; // Assume userID is stored in session after login
+        $fileData = file_get_contents($_FILES['uploadedFile']['tmp_name']);
+
+        // MongoDB Insert
+        $document = ['userID' => $userID, 'fileData' => $fileData, 'fileName' => $_FILES['uploadedFile']['name']];
+        $collection->insertOne($document);
+    }
+
+6. Querying and Linking Data
+When you need to retrieve both user info and their documents, use the userID to query both databases.
+Example:
+
+    // Fetch user from SQL
+    $sql = "SELECT * FROM users WHERE userID = '$userID'";
+    $result = $mysqli->query($sql);
+    $user = $result->fetch_assoc();
+
+    // Fetch documents from MongoDB
+    $documents = $collection->find(['userID' => $userID]);
+
+7. Testing and Debugging
+Test the connectivity and data retrieval across both databases thoroughly.
+Ensure that the data remains consistent and correctly linked through userID.
+
+8. Security Considerations
+Sanitize all inputs to avoid SQL injection and other security vulnerabilities.
+Use parameterized queries for SQL and validate MongoDB inputs.
