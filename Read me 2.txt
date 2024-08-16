@@ -1,0 +1,15 @@
+How to use (For Customer)
+1.if you are new, first Register your self. by this you will recevie your Login Credentail's
+2.then login to your system.
+3.apply for any policy.
+4.ask, if you have any query/doubt.
+5.give a feedback
+
+how to use (For Admin)
+1.login to the system.
+2.check for policy request's by the Customers. 
+3.Appprove/Reject the polices of the Customer's
+4.check for the Queries sent by the Customers,and reply accordingly.
+5.check the feedback's by the Customers
+6.Update any Policy as per required.
+7.create a new Policy  
