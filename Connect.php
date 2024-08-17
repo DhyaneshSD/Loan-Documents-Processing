@@ -7,7 +7,7 @@
 $socket_path = "/home/college_yk/cloudsql/solid-range-430210-c5:us-central1:ldp-6";
 
 // Database credentials
-$username = "ldp-6";  // Replace with your actual MySQL username
+$username = "root";  // Replace with your actual MySQL username
 $password = "yashk@123";  // Replace with your actual MySQL password
 $database = "ldp";  // Replace with your database name
 
