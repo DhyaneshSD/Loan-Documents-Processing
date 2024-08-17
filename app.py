@@ -9,7 +9,7 @@ if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'Index.html')
 
 def process_loan(request):
     if request.method == 'POST' and 'document' in request.FILES:
