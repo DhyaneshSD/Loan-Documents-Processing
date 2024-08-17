@@ -8,8 +8,8 @@ $socket_path = "/home/college_yk/cloudsql/solid-range-430210-c5:us-central1:ldp-
 
 // Database credentials
 $username = "root";  // Replace with your actual MySQL username
-$password = "yashk@123";  // Replace with your actual MySQL password
-$database = "ldp";  // Replace with your database name
+$password = "";  // Replace with your actual MySQL password
+$database = "";  // Replace with your database name
 
 // Create a connection to the MySQL database
 $conn = mysqli_connect(null, $username, $password, $database, null, $socket_path);
