@@ -1,0 +1,11 @@
+runtime: php74
+
+handlers:
+  - url: /.*
+    script: auto
+
+env_variables:
+  MYSQL_HOST: "/cloudsql/your-project-id:region:instance-id"
+  MYSQL_USER: "your-username"
+  MYSQL_PASSWORD: "your-password"
+  MYSQL_DB: "your-database-name"
