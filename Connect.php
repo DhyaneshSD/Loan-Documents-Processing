@@ -3,20 +3,38 @@
  ?>	 -->
 
 <?php
-// Path to the Cloud SQL Proxy Unix socket
-$socket_path = "/home/college_yk/cloudsql/solid-range-430210-c5:us-central1:ldp-6";
+// MongoDB Connection
 
-// Database credentials
-$username = "root";  // Replace with your actual MySQL username
-$password = "";  // Replace with your actual MySQL password
-$database = "";  // Replace with your database name
+require 'vendor/autoload.php'; // If you're using Composer
 
-// Create a connection to the MySQL database
-$conn = mysqli_connect(null, $username, $password, $database, null, $socket_path);
+$mongoHost = 'mongodb+srv://your-username:your-password@cluster0.d2wo8.mongodb.net/?retryWrites=true&w=majority';
+$mongoClient = new MongoDB\Client($mongoHost);
+$mongoDb = $mongoClient->selectDatabase('your-database-name');
 
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+// MySQL Connection
+
+$mysqlHost = 'localhost'; // Use the Cloud SQL connection name if you're connecting from App Engine
+$mysqlUser = 'your-username';
+$mysqlPassword = 'your-password';
+$mysqlDb = 'your-database-name';
+
+// Create MySQL connection
+$mysqli = new mysqli($mysqlHost, $mysqlUser, $mysqlPassword, $mysqlDb);
+
+// Check MySQL connection
+if ($mysqli->connect_error) {
+    die("MySQL connection failed: " . $mysqli->connect_error);
 }
-echo "Connected successfully";
+
+// Optional: Check MongoDB connection
+try {
+    $mongoDb->listCollections(); // This will throw an exception if the connection fails
+    echo "MongoDB connection successful.";
+} catch (Exception $e) {
+    die("MongoDB connection failed: " . $e->getMessage());
+}
+
+// If you need to perform actions with the databases, you can use $mongoDb and $mysqli
+
 ?>
+
