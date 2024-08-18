@@ -1,6 +1,6 @@
 {
     "name": "indigo-bloom-432910-i7",
-    "description": "A brief description of your project",
+    "description": "Web application for Loan Documents Processing using GenAI",
     "require": {
         "mongodb/mongodb": "^1.9",
         "ext-mysqli": "*"
